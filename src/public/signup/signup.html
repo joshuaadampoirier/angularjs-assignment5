@@ -1,0 +1,98 @@
+<div class="container">
+
+  <div class="row">
+    <!-- title -->
+    <h2 class="text-center">
+      Sign up
+    </h2>
+
+    <!-- instructions -->
+    <p class="text-center">
+      Sign up for our newsletter by providing the following information!
+    </p>
+  </div>
+
+  <div class="row">
+    <div id="signupForm">
+      <form name='regForm' novalidate>
+
+        <!-- first name input -->
+        <div class="col-xs-6 col-xs-offset-3 myinfoForm">
+        <input type="text" class="form-control" name="firstname" placeholder="first name"
+          ng-model="signupCtrl.myinfo.firstname"
+          required>
+          <span class="error" ng-if="regForm.firstname.$error.required && regForm.firstname.$touched">
+            You must provide your first name
+          </span>
+        </div>
+
+
+        <!-- last name input -->
+        <div class="col-xs-6 col-xs-offset-3 myinfoForm">
+        <input type="text" class="form-control" name="lastname" placeholder="last name"
+          ng-model="signupCtrl.myinfo.lastname"
+          required>
+          <span class="error" ng-if="regForm.lastname.$error.required && regForm.lastname.$touched">
+            You must provide your last name
+          </span>
+        </div>
+
+        <!-- email input -->
+        <div class="col-xs-6 col-xs-offset-3 myinfoForm">
+        <input type="text" class="form-control" name="email" placeholder="email"
+          ng-model="signupCtrl.myinfo.email"
+          required>
+          <span class="error" ng-if="regForm.email.$invalid && regForm.email.$touched">
+            You must provide a valide email address: handle@domain format
+          </span>
+        </div>
+
+        <!-- phone input -->
+        <div class="col-xs-6 col-xs-offset-3 myinfoForm">
+        <input type="text" class="form-control" name="phone" placeholder="Phone ###-###-####"
+          ng-model="signupCtrl.myinfo.phone"
+          pattern="(\d{3})-(\d{3})-(\d{4})">
+          <span class="error" ng-if="regForm.phone.$invalid && regForm.phone.$touched">
+            Phone must be in the format ###-###-####.
+          </span>
+        </div>
+
+        <!-- favorite dish input -->
+        <div class="col-xs-6 col-xs-offset-3 myinfoForm">
+        <input type="text" class="form-control" name="favDish" placeholder="Favorite dish"
+          ng-model="signupCtrl.favDish"
+          required>
+          <span class="error" ng-if="regForm.favDish.$error.required && regForm.favDish.$touched">
+            You must provide your favorite dish
+          </span>
+        </div>
+
+
+        <!-- submit button -->
+        <div class="col-xs-6 col-xs-offset-3 myinfoForm">
+        <button class="btn btn-primary btn-block"
+                ng-disabled="regForm.$invalid" ng-click="signupCtrl.submit()">
+          Submit
+        </button>
+        </div>
+
+        <!-- success message -->
+        <div class="col-xs-6 col-xs-offset-3 myinfoForm alert alert-success"
+          ng-if="signupCtrl.completed && signupCtrl.clicked">
+          <strong>Success!</strong>  Your information has been saved!
+        </div>
+
+        <!-- error message -->
+        <div class="col-xs-6 col-xs-offset-3 myinfoForm alert alert-danger"
+          ng-if="!signupCtrl.completed && signupCtrl.clicked">
+          <strong>Error!</strong>  Your favorite dish could not be found!
+        </div>
+
+      </form>
+    </div>
+
+    <div class="col-xs-12 text-center">
+      Already have an account?  <a ui-sref="public.myinfo">Login</a>
+    </div>
+  </div>
+</div>

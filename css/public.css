@@ -111,6 +111,20 @@ h3.menu-item-title {
   font-size: .9em;
   font-style: italic;
 }
+
+.error {
+  background-color: white;
+  color: red;
+  text-align: center;
+}
+
+.myinfoForm {
+  padding: 5px;
+}
+
+#signupForm {
+  text-align: center;
+}
 /* END SINGLE CATEGORY PAGE */
 
 

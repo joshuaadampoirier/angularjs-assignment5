@@ -1,0 +1,45 @@
+<div class="container">
+
+
+
+  <!-- error message if user has not yet signed up -->
+  <div class="col-xs-6 col-xs-offset-3" ng-if="!myinfoCtrl.myinfo">
+    You are not yet signed up.  Sign up <a ui-sref="public.signup">here</a>.
+  </div>
+
+  <!-- show the user their provided information -->
+  <div class="menu-item-tile col-md-12" ng-if="myinfoCtrl.myinfo">
+    <h2 class="text-center">My information</h2>
+    <hr>
+    <div class="row">
+      <div class="col-xs-3 col-xs-offset-4">First name:</div>
+      <div class="col-xs-5">{{ myinfoCtrl.myinfo.firstname }}</div>
+      <div class="col-xs-3 col-xs-offset-4">Last name:</div>
+      <div class="col-xs-5">{{ myinfoCtrl.myinfo.lastname }}</div>
+      <div class="col-xs-3 col-xs-offset-4">Email:</div>
+      <div class="col-xs-5">{{ myinfoCtrl.myinfo.email }}</div>
+      <div class="col-xs-3 col-xs-offset-4">Phone:</div>
+      <div class="col-xs-5">{{ myinfoCtrl.myinfo.phone }}</div>
+    </div>
+  </div>
+
+  <!-- show the user their favorite dish -->
+  <div class="menu-item-tile col-md-12" ng-if="myinfoCtrl.myinfo">
+    <h3 class="text-center">My favorite dish</h3>
+    <div class="row">
+      <div class="col-sm-5">
+        <div class="menu-item-photo">
+          <div>{{myinfoCtrl.myinfo.favDish.short_name}}</div>
+          <img class="img-responsive" width="250" height="150" ng-src="{{myinfoCtrl.basePath}}/images/{{myinfoCtrl.myinfo.favDish.short_name}}.jpg" alt="{{myinfoCtrl.myinfo.favDish.name}}">
+        </div>
+        <div class="menu-item-price">{{myinfoCtrl.myinfo.favDish.price_small | currency}}<span> {{myinfoCtrl.myinfo.favDish.small_portion_name}}</span> {{myinfoCtrl.myinfo.favDish.price_large | currency}} <span>{{myinfoCtrl.myinfo.favDish.large_portion_name}}</span></div>
+      </div>
+      <div class="menu-item-description col-sm-7">
+        <h3 class="menu-item-title">{{myinfoCtrl.myinfo.favDish.name}}</h3>
+        <p class="menu-item-details">{{myinfoCtrl.myinfo.favDish.description}}</p>
+      </div>
+    </div>
+    <hr class="visible-xs">
+  </div>
+
+</div>
